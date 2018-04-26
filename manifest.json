@@ -1,0 +1,49 @@
+ 
+   {
+  "manifest_version": 2,
+  "name": "Rabbit Downloader",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.facebook.com/*/videos/*",
+        "https://www.facebook.com/*/videos/*"
+      ],
+      "js": [
+        "/assets/fontAwesome.js",
+        "/dist/facebook.bundle.js"
+      ],
+      "css": [
+        "/src/Facebook/index.css"
+      ]
+    },
+    {
+      "matches": [
+        "http://www.youtube.com/*",
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "/assets/fontAwesome.js",
+        "/dist/youtube.bundle.js"
+      ],
+      "css": [
+        "/src/Youtube/youtube.css"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "https://*.googlevideo.com/*",
+    "downloads" 
+  ],
+  "browser_action": {
+    "default_icon": "/assets/rabbit-256.png"
+  },
+  "icons": { 
+    "16": "/assets/rabbit-256.png",
+    "48": "/assets/rabbit-256.png",
+    "128":  "/assets/rabbit-256.png"
+  }
+}

@@ -1,0 +1,40 @@
+.fb-download-button {
+  position: fixed;
+  top: 4px;
+  right: 10px;
+  text-align: center;
+  z-index: 500;
+}
+.fb-download-button button {
+  background: #344582;
+  color: #fff;
+  height: 35px;
+  width: 35px;
+  line-height: 35px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+
+}
+.fb-download-button ul {
+  font-family: "Open Sans";
+  list-style-type: none;
+  padding: 5px 0;
+  width: 125px;
+  background: #344582;
+  visibility: hidden;
+  font-weight: bold;
+}
+.fb-download-button ul li {
+  padding: 5px 0;
+  transition: background 0.25s;
+  color: #fff;
+  cursor: pointer;
+  line-height: 25px;
+}
+.fb-download-button ul li:hover {
+  background: #232b55;
+}
+.fb-download-button ul.active {
+  visibility: visible;
+}
