@@ -1,1 +1,222 @@
-!function(n){function c(e){if(l[e])return l[e].exports;var o=l[e]={i:e,l:!1,exports:{}};return n[e].call(o.exports,o,o.exports,c),o.l=!0,o.exports}var l={};c.m=n,c.c=l,c.d=function(n,l,e){c.o(n,l)||Object.defineProperty(n,l,{configurable:!1,enumerable:!0,get:e})},c.n=function(n){var l=n&&n.__esModule?function(){return n.default}:function(){return n};return c.d(l,"a",l),l},c.o=function(n,c){return Object.prototype.hasOwnProperty.call(n,c)},c.p="",c(c.s=72)}({13:function(module,exports,__webpack_require__){"use strict";eval('\n\nObject.defineProperty(exports, "__esModule", {\n  value: true\n});\nvar handleNewDownload = exports.handleNewDownload = function handleNewDownload(download) {\n  var action = {\n    type: "ADD_DOWNLOAD",\n    download: download\n  };\n  chrome.runtime.sendMessage({ action: action }, function (response) {\n    console.log(response);\n  });\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vc3JjL2FjdGlvbnMuanM/NzcwMSJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgaGFuZGxlTmV3RG93bmxvYWQgPSAoZG93bmxvYWQpID0+IHtcclxuICBjb25zdCBhY3Rpb24gPSB7XHJcbiAgICAgIHR5cGU6IFwiQUREX0RPV05MT0FEXCIsXHJcbiAgICAgIGRvd25sb2FkXHJcbiAgfVxyXG4gIGNocm9tZS5ydW50aW1lLnNlbmRNZXNzYWdlKHthY3Rpb259LCBmdW5jdGlvbihyZXNwb25zZSkge1xyXG4gICAgY29uc29sZS5sb2cocmVzcG9uc2UpO1xyXG4gIH0pO1xyXG59XG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIHNyYy9hY3Rpb25zLmpzIl0sIm1hcHBpbmdzIjoiOzs7OztBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBRkE7QUFJQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///13\n')},72:function(module,exports,__webpack_require__){"use strict";eval('\n\nvar _extractor = __webpack_require__(73);\n\nvar _extractor2 = _interopRequireDefault(_extractor);\n\nvar _actions = __webpack_require__(13);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar videoURL = window.location.href;\nvar videoID = "Download";\ntry {\n  videoID = window.location.pathname.split("/").filter(function (el) {\n    return el;\n  })[2];\n} catch (e) {\n  console.log(e.message);\n}\nvar handleLow = function handleLow() {\n  _extractor2.default.low(videoURL).then(function (_ref) {\n    var url = _ref.url;\n\n    var download = {\n      filename: videoID + ".mp4",\n      url: url\n    };\n    (0, _actions.handleNewDownload)(download);\n  });\n};\n\nvar handleHigh = function handleHigh() {\n  _extractor2.default.high(videoURL).then(function (_ref2) {\n    var url = _ref2.url;\n\n    var download = {\n      filename: videoID + ".mp4",\n      url: url\n    };\n    (0, _actions.handleNewDownload)(download);\n  });\n};\n\nvar downloadBtn = document.createElement("div");\ndownloadBtn.classList.add("fb-download-button");\ndownloadBtn.innerHTML = "\\n  <button>\\n    <i class=\\"fa fa-arrow-down fa-lg\\"></i>\\n  </button>\\n  <ul>\\n    <li>HD</li>\\n    <li>Normal Quality</li>\\n  </ul>\\n";\n\ndownloadBtn.querySelector("button").onclick = function () {\n  downloadBtn.querySelector("ul").classList.toggle("active");\n};\ndownloadBtn.querySelector("ul li:nth-child(1)").onclick = handleHigh;\ndownloadBtn.querySelector("ul li:nth-child(2)").onclick = handleLow;\n\nwindow.onload = function () {\n  document.querySelector("div").appendChild(downloadBtn);\n  // const locationInterval = setInterval(() => {\n  //   if ((/http[s]?:\\/\\/www.facebook.\\s+\\/\\d+\\/videos\\/\\d+/gi).test(window.location.href)) {\n  //     console.log("Changed")\n  //   }\n  // }, 250)\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNzIuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vc3JjL0ZhY2Vib29rL2luZGV4LmpzPzZkZGIiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGV4dHJhY3RvciBmcm9tICBcIi4vZXh0cmFjdG9yXCJcclxuaW1wb3J0IHsgaGFuZGxlTmV3RG93bmxvYWQgfSBmcm9tIFwiLi4vYWN0aW9uc1wiXHJcblxyXG5jb25zdCB2aWRlb1VSTCA9IHdpbmRvdy5sb2NhdGlvbi5ocmVmO1xyXG5sZXQgdmlkZW9JRCA9IFwiRG93bmxvYWRcIlxyXG50cnkge1xyXG4gIHZpZGVvSUQgPSB3aW5kb3cubG9jYXRpb24ucGF0aG5hbWUuc3BsaXQoXCIvXCIpLmZpbHRlcihlbCA9PiBlbClbMl1cclxufVxyXG5jYXRjaCAoZSkge1xyXG4gIGNvbnNvbGUubG9nKGUubWVzc2FnZSlcclxufVxyXG5jb25zdCBoYW5kbGVMb3cgPSAoKSA9PiB7XHJcbiAgZXh0cmFjdG9yLmxvdyh2aWRlb1VSTCkudGhlbigoeyB1cmwgfSkgPT4ge1xyXG4gICAgY29uc3QgZG93bmxvYWQgPSAge1xyXG4gICAgICBmaWxlbmFtZTogdmlkZW9JRCArIFwiLm1wNFwiLFxyXG4gICAgICB1cmxcclxuICAgIH1cclxuICAgIGhhbmRsZU5ld0Rvd25sb2FkKGRvd25sb2FkKVxyXG4gIH0pO1xyXG59XHJcblxyXG5jb25zdCBoYW5kbGVIaWdoID0gKCkgPT4ge1xyXG4gIGV4dHJhY3Rvci5oaWdoKHZpZGVvVVJMKS50aGVuKCh7IHVybCB9KSA9PiB7XHJcbiAgICBjb25zdCBkb3dubG9hZCA9ICB7XHJcbiAgICAgIGZpbGVuYW1lOiB2aWRlb0lEICsgXCIubXA0XCIsXHJcbiAgICAgIHVybFxyXG4gICAgfVxyXG4gICAgaGFuZGxlTmV3RG93bmxvYWQoZG93bmxvYWQpXHJcblxyXG4gIH0pO1xyXG59XHJcblxyXG5sZXQgZG93bmxvYWRCdG4gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpXHJcbmRvd25sb2FkQnRuLmNsYXNzTGlzdC5hZGQoXCJmYi1kb3dubG9hZC1idXR0b25cIilcclxuZG93bmxvYWRCdG4uaW5uZXJIVE1MID0gYFxyXG4gIDxidXR0b24+XHJcbiAgICA8aSBjbGFzcz1cImZhIGZhLWFycm93LWRvd24gZmEtbGdcIj48L2k+XHJcbiAgPC9idXR0b24+XHJcbiAgPHVsPlxyXG4gICAgPGxpPkhEPC9saT5cclxuICAgIDxsaT5Ob3JtYWwgUXVhbGl0eTwvbGk+XHJcbiAgPC91bD5cclxuYFxyXG5cclxuZG93bmxvYWRCdG4ucXVlcnlTZWxlY3RvcihcImJ1dHRvblwiKS5vbmNsaWNrID0gKCkgPT4ge1xyXG4gIGRvd25sb2FkQnRuLnF1ZXJ5U2VsZWN0b3IoXCJ1bFwiKS5jbGFzc0xpc3QudG9nZ2xlKFwiYWN0aXZlXCIpXHJcbn1cclxuZG93bmxvYWRCdG4ucXVlcnlTZWxlY3RvcihcInVsIGxpOm50aC1jaGlsZCgxKVwiKS5vbmNsaWNrID0gaGFuZGxlSGlnaFxyXG5kb3dubG9hZEJ0bi5xdWVyeVNlbGVjdG9yKFwidWwgbGk6bnRoLWNoaWxkKDIpXCIpLm9uY2xpY2sgPSBoYW5kbGVMb3dcclxuXHJcbndpbmRvdy5vbmxvYWQgPSAoKSA9PiB7XHJcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcImRpdlwiKS5hcHBlbmRDaGlsZChkb3dubG9hZEJ0bilcclxuICAvLyBjb25zdCBsb2NhdGlvbkludGVydmFsID0gc2V0SW50ZXJ2YWwoKCkgPT4ge1xyXG4gIC8vICAgaWYgKCgvaHR0cFtzXT86XFwvXFwvd3d3LmZhY2Vib29rLlxccytcXC9cXGQrXFwvdmlkZW9zXFwvXFxkKy9naSkudGVzdCh3aW5kb3cubG9jYXRpb24uaHJlZikpIHtcclxuICAvLyAgICAgY29uc29sZS5sb2coXCJDaGFuZ2VkXCIpXHJcbiAgLy8gICB9XHJcbiAgLy8gfSwgMjUwKVxyXG59XHJcblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyBzcmMvRmFjZWJvb2svaW5kZXguanMiXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFDQTs7O0FBQUE7QUFDQTs7O0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUFBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBQ0E7QUFBQTtBQUNBO0FBQ0E7QUFGQTtBQUlBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBQ0E7QUFBQTtBQUNBO0FBQ0E7QUFGQTtBQUlBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFTQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///72\n')},73:function(module,exports,__webpack_require__){"use strict";eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar msg = 'Either the video is deleted or it\\'s not shared publicly!';\n\nvar lowResolution = function lowResolution(link) {\n  return fetch(link).then(function (res) {\n    return res.text();\n  }).then(function (res) {\n    var link = res.split('sd_src_no_ratelimit:\"')[1].split('\",hd_src_no_ratelimit:')[0];\n    return {\n      url: link\n    };\n  }).catch(function (err) {\n    if (err) {\n      err.message = msg;\n    }\n    return err.message;\n  });\n};\n\nvar highResolution = function highResolution(link) {\n  return fetch(link).then(function (res) {\n    return res.text();\n  }).then(function (res) {\n    var link = res.split('hd_src_no_ratelimit:\"')[1].split('\",aspect_ratio:')[0];\n    return {\n      url: link\n    };\n  }).catch(function (err) {\n    if (err) {\n      err.message = msg;\n    }\n    return err.message;\n  });\n};\n\nexports.default = {\n  low: lowResolution,\n  high: highResolution\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNzMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vc3JjL0ZhY2Vib29rL2V4dHJhY3Rvci5qcz9mYWM4Il0sInNvdXJjZXNDb250ZW50IjpbImNvbnN0IG1zZyA9ICdFaXRoZXIgdGhlIHZpZGVvIGlzIGRlbGV0ZWQgb3IgaXRcXCdzIG5vdCBzaGFyZWQgcHVibGljbHkhJztcclxuXHJcbmNvbnN0IGxvd1Jlc29sdXRpb24gPSBsaW5rID0+IHtcclxuICByZXR1cm4gZmV0Y2gobGluaylcclxuICAgIC50aGVuKHJlcyA9PiByZXMudGV4dCgpKVxyXG4gICAgLnRoZW4ocmVzID0+IHtcclxuICAgICAgY29uc3QgbGluayA9IHJlcy5zcGxpdCgnc2Rfc3JjX25vX3JhdGVsaW1pdDpcIicpWzFdLnNwbGl0KCdcIixoZF9zcmNfbm9fcmF0ZWxpbWl0OicpWzBdO1xyXG4gICAgICByZXR1cm4ge1xyXG4gICAgICAgIHVybDogbGlua1xyXG4gICAgICB9O1xyXG4gICAgfSkuY2F0Y2goZXJyID0+IHtcclxuICAgICAgaWYgKGVycikge1xyXG4gICAgICAgIGVyci5tZXNzYWdlID0gbXNnO1xyXG4gICAgICB9XHJcbiAgICAgIHJldHVybiBlcnIubWVzc2FnZTtcclxuICAgIH0pO1xyXG59O1xyXG5cclxuY29uc3QgaGlnaFJlc29sdXRpb24gPSBsaW5rID0+IHtcclxuICByZXR1cm4gZmV0Y2gobGluaylcclxuICAgIC50aGVuKHJlcyA9PiByZXMudGV4dCgpKVxyXG4gICAgLnRoZW4ocmVzID0+IHtcclxuICAgICAgY29uc3QgbGluayA9IHJlcy5zcGxpdCgnaGRfc3JjX25vX3JhdGVsaW1pdDpcIicpWzFdLnNwbGl0KCdcIixhc3BlY3RfcmF0aW86JylbMF07XHJcbiAgICAgIHJldHVybiB7XHJcbiAgICAgICAgdXJsOiBsaW5rXHJcbiAgICAgIH07XHJcbiAgICB9KS5jYXRjaChlcnIgPT4ge1xyXG4gICAgICBpZiAoZXJyKSB7XHJcbiAgICAgICAgZXJyLm1lc3NhZ2UgPSBtc2c7XHJcbiAgICAgIH1cclxuICAgICAgcmV0dXJuIGVyci5tZXNzYWdlO1xyXG4gICAgfSk7XHJcbn07XHJcblxyXG5leHBvcnQgZGVmYXVsdCB7XHJcbiAgbG93OiBsb3dSZXNvbHV0aW9uLFxyXG4gIGhpZ2g6IGhpZ2hSZXNvbHV0aW9uXHJcbn1cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gc3JjL0ZhY2Vib29rL2V4dHJhY3Rvci5qcyJdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFFQTtBQUNBO0FBQ0E7QUFEQTtBQUdBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUVBO0FBQ0E7QUFDQTtBQURBO0FBR0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUZBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///73\n")}});
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 21);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.handleNewDownload = void 0;
+exports.handleNewDownload = (download) => {
+    const action = {
+        type: 'ADD_DOWNLOAD',
+        download,
+    };
+    chrome.runtime.sendMessage({ action }, function (response) {
+        console.log(response);
+    });
+};
+
+
+/***/ }),
+
+/***/ 21:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const extractor_1 = __importDefault(__webpack_require__(22));
+const actions_1 = __webpack_require__(2);
+const videoURL = window.location.href;
+let videoID = "Download";
+try {
+    videoID = window.location.pathname.split("/").filter(el => el)[2];
+}
+catch (e) {
+    console.log(e.message);
+}
+const handleLow = () => {
+    extractor_1.default.low(videoURL).then(({ url }) => {
+        const download = {
+            filename: videoID + ".mp4",
+            url
+        };
+        actions_1.handleNewDownload(download);
+    });
+};
+const handleHigh = () => {
+    extractor_1.default.high(videoURL).then(({ url }) => {
+        const download = {
+            filename: videoID + ".mp4",
+            url
+        };
+        actions_1.handleNewDownload(download);
+    });
+};
+let downloadBtn = document.createElement("div");
+downloadBtn.classList.add("fb-download-button");
+downloadBtn.innerHTML = `
+  <button>
+    <i class="fa fa-arrow-down fa-lg"></i>
+  </button>
+  <ul>
+    <li>HD</li>
+    <li>Normal Quality</li>
+  </ul>
+`;
+downloadBtn.querySelector("button").onclick = () => {
+    downloadBtn.querySelector("ul").classList.toggle("active");
+};
+downloadBtn.querySelector("ul li:nth-child(1)").onclick = handleHigh;
+downloadBtn.querySelector("ul li:nth-child(2)").onclick = handleLow;
+window.onload = () => {
+    document.querySelector("div").appendChild(downloadBtn);
+    // const locationInterval = setInterval(() => {
+    //   if ((/http[s]?:\/\/www.facebook.\s+\/\d+\/videos\/\d+/gi).test(window.location.href)) {
+    //     console.log("Changed")
+    //   }
+    // }, 250)
+};
+
+
+/***/ }),
+
+/***/ 22:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const msg = 'Either the video is deleted or it\'s not shared publicly!';
+const lowResolution = (link) => fetch(link)
+    .then((res) => res.text())
+    .then((res) => {
+    const link = res
+        .split('sd_src_no_ratelimit:"')[1]
+        .split('",hd_src_no_ratelimit:')[0];
+    return {
+        url: link,
+    };
+})
+    .catch((err) => {
+    if (err) {
+        err.message = msg;
+    }
+    return err.message;
+});
+const highResolution = (link) => fetch(link)
+    .then((res) => res.text())
+    .then((res) => {
+    const link = res
+        .split('hd_src_no_ratelimit:"')[1]
+        .split('",aspect_ratio:')[0];
+    return {
+        url: link,
+    };
+})
+    .catch((err) => {
+    if (err) {
+        err.message = msg;
+    }
+    return err.message;
+});
+exports.default = {
+    low: lowResolution,
+    high: highResolution,
+};
+
+
+/***/ })
+
+/******/ });
+//# sourceMappingURL=facebook.bundle.js.map

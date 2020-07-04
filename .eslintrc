@@ -1,0 +1,126 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false
+  },
+  "extends": [
+    "wesbos",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "simple-import-sort"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 100,
+        "ignoreStrings": true,
+        "ignoreComments": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "prefer-promise-reject-errors": [
+      "off"
+    ],
+    "react/jsx-filename-extension": [
+      "off"
+    ],
+    "react/prop-types": [
+      "off"
+    ],
+    "no-return-assign": [
+      "off"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-single"
+    ],
+    "prefer-template": "error",
+    "prefer-const": "error",
+    "no-var": "error",
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
+    "keyword-spacing": [
+      "error"
+    ],
+    "no-multi-spaces": "error",
+    "key-spacing": [
+      2,
+      {
+        "beforeColon": false,
+        "afterColon": true
+      }
+    ],
+    "arrow-parens": [
+      2,
+      "always"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "brace-style": [
+      2,
+      "stroustrup",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "comma-style": [
+      "error",
+      "last"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "simple-import-sort/sort": [
+      "error",
+      {
+        "groups": [
+          // Packages.
+          // Things that start with a letter (or digit or underscore), or `@` followed by a letter.
+          [
+            "^@?\\w"
+          ],
+          // Relative imports.
+          // Anything that starts with a dot.
+          [
+            "^\\."
+          ],
+          // Side effect imports.
+          [
+            "^\\u0000"
+          ],
+          // Absolute imports and other imports such as Vue-style `@/foo`.
+          // Anything that does not start with a dot.
+          [
+            "^[^.]"
+          ]
+        ]
+      }
+    ],
+    "sort-imports": "off",
+    "import/order": "off"
+  }
+}

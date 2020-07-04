@@ -1,46 +1,46 @@
-const path = require("path")
-const webpack = require("webpack")
-
-
-
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-    entry: {
-        youtube: "./src/Youtube/router.js",
-        facebook: "./src/Facebook/index.js"
-    },
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compressor: {
-                warnings: false
-            }
-        }),
-
-    ],
-    output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
-    },
-    resolve: {
-        modules: [
-            "node_modules/",
+  mode: 'production',
+  entry: {
+    youtube: './src/Youtube/router.ts',
+    facebook: './src/Facebook/index.ts',
+  },
+  optimization: {
+    minimize: false,
+  },
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+            },
+          },
         ],
-        extensions: [" ", ".js"]
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js?$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['es2015', "stage-0"]
-                    }
-                }
-            }
-        ]
-    },
-
-    devtool : "cheap-module-eval-source-map"
-}
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
+      },
+    ],
+  },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+  },
+  devtool: 'source-map',
+};

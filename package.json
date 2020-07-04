@@ -1,14 +1,45 @@
 {
+  "name": "rabbit-downloader",
+  "description": "A browser extension that helps web people to save a copy of their best moments online.",
+  "scripts": {
+    "start": "webpack",
+    "dev": "webpack -w",
+    "lint:fix": "eslint src/**/*.ts[x] --fix"
+  },
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.19.2",
     "babel": "^6.23.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "dom-regex": "^0.0.3",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
     "fluent-ffmpeg": "^2.1.2",
-    "webpack": "^3.8.1",
-    "ytdl-core": "^0.20.2"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "source-map-loader": "^1.0.1",
+    "styled-components": "^5.1.1",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.6",
+    "webpack": "^4.43.0",
+    "ytdl-core": "^2.1.7"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-wesbos": "0.0.19",
+    "eslint-plugin-html": "^5.0.3",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.3.0",
+    "prettier": "^1.16.4",
+    "webpack-cli": "^3.3.12"
   }
 }
